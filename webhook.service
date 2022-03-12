@@ -4,6 +4,10 @@ After=multi-user.target
 [Service]
 Environment="SECRET=my_secret"
 Environment="SCRIPT_PATH=/path/to/my/exec/file"
+# You should create service user with limited rights. Starting service as root is a potential security risk.
+# Please uncomment following lines and fill in user and group parameters
+; User=
+; Group=
 Type=simple
 Restart=always
 ExecStart=/usr/bin/python3 -u /opt/webhook.py -x "${SCRIPT_PATH}" -s ${SECRET}
