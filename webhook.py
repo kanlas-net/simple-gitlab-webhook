@@ -25,7 +25,7 @@ class HttpGetHandler(BaseHTTPRequestHandler):
 
 
 def exec_file(path):
-    subprocess.run(path, shell=True)
+    subprocess.Popen(path, shell=True)
 
 
 def server_run(address, port, server_class=HTTPServer, handler_class=HttpGetHandler):
